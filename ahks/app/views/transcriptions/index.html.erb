@@ -1,0 +1,37 @@
+<h1>Listing transcriptions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Path to audio</th>
+      <th>Text</th>
+      <th>User</th>
+      <th>Date created</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transcriptions.each do |transcription| %>
+      <tr>
+        <td><%= transcription.name %></td>
+        <td><%= transcription.description %></td>
+        <td><%= transcription.path_to_audio %></td>
+        <td><%= transcription.text %></td>
+        <td><%= transcription.user_id %></td>
+        <td><%= transcription.date_created %></td>
+        <td><%= link_to 'Show', transcription %></td>
+        <td><%= link_to 'Edit', edit_transcription_path(transcription) %></td>
+        <td><%= link_to 'Destroy', transcription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transcription', new_transcription_path %>

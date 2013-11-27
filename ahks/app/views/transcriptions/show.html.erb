@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @transcription.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @transcription.description %>
+</p>
+
+<p>
+  <strong>Path to audio:</strong>
+  <%= @transcription.path_to_audio %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @transcription.text %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @transcription.user_id %>
+</p>
+
+<p>
+  <strong>Date created:</strong>
+  <%= @transcription.date_created %>
+</p>
+
+<%= link_to 'Edit', edit_transcription_path(@transcription) %> |
+<%= link_to 'Back', transcriptions_path %>
