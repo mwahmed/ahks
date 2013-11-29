@@ -1,34 +1,33 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Transcription -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @transcription.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @transcription.user_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tag_ids) %>:</strong></dt>
+  <dd><%= @transcription.tag_ids %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @transcription.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @transcription.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:path_to_audio) %>:</strong></dt>
+  <dd><%= @transcription.path_to_audio %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:text) %>:</strong></dt>
+  <dd><%= @transcription.text %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date_created) %>:</strong></dt>
+  <dd><%= @transcription.date_created %></dd>
+</dl>
 
-<p>
-  <strong>Description:</strong>
-  <%= @transcription.description %>
-</p>
-
-<p>
-  <strong>Path to audio:</strong>
-  <%= @transcription.path_to_audio %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @transcription.text %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @transcription.user_id %>
-</p>
-
-<p>
-  <strong>Date created:</strong>
-  <%= @transcription.date_created %>
-</p>
-
-<%= link_to 'Edit', edit_transcription_path(@transcription) %> |
-<%= link_to 'Back', transcriptions_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              transcriptions_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_transcription_path(@transcription), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              transcription_path(@transcription),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
