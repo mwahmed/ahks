@@ -1,6 +1,6 @@
 class TranscriptionsController < ApplicationController
   before_action :set_transcription, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
   # GET /transcriptions
   # GET /transcriptions.json
   def index
