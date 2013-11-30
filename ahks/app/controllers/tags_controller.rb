@@ -4,7 +4,8 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.all
+    #@tags = Tag.all
+    @tags = current_user.tags
   end
 
   # GET /tags/1
@@ -28,8 +29,8 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       if @tag.save
-        format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @tag }
+        format.html { redirect_to "/tags", notice: 'Tag was successfully created.' }
+        format.json { render action: 'index', status: :created }
       else
         format.html { render action: 'new' }
         format.json { render json: @tag.errors, status: :unprocessable_entity }
@@ -42,7 +43,7 @@ class TagsController < ApplicationController
   def update
     respond_to do |format|
       if @tag.update(tag_params)
-        format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
+        format.html { redirect_to "/tags", notice: 'Tag was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -55,10 +56,13 @@ class TagsController < ApplicationController
   # DELETE /tags/1.json
   def destroy
     @tag.destroy
+
     respond_to do |format|
-      format.html { redirect_to tags_url }
+      format.html { redirect_to "/tags",notice:'Tag was successfully deleted'}
       format.json { head :no_content }
     end
+
+#    render js: "$(this).closest('tr').remove();"
   end
 
   private

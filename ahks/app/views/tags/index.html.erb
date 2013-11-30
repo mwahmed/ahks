@@ -5,10 +5,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:date_created) %></th>
       
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -16,12 +14,10 @@
   </thead>
   <tbody>
     <% @tags.each do |tag| %>
-      <tr>
-        <td><%= link_to tag.id, tag_path(tag) %></td>
+      <tr id="#{tag.id}">
         <td><%= tag.name %></td>
         <td><%= tag.description %></td>
-        <td><%= tag.user_id %></td>
-        <td><%= tag.date_created %></td>
+        <td><%= tag.date_created%></td>
         
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

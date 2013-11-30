@@ -4,7 +4,8 @@ class TranscriptionsController < ApplicationController
   # GET /transcriptions
   # GET /transcriptions.json
   def index
-    @transcriptions = Transcription.all
+     @transcriptions = current_user.transcriptions
+#    @transcriptions = Transcription.all
   end
 
   # GET /transcriptions/1

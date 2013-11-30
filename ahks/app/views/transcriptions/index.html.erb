@@ -5,12 +5,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:tag_ids) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:path_to_audio) %></th>
       <th><%= model_class.human_attribute_name(:text) %></th>
       <th><%= model_class.human_attribute_name(:date_created) %></th>
       
@@ -20,12 +16,8 @@
   <tbody>
     <% @transcriptions.each do |transcription| %>
       <tr>
-        <td><%= link_to transcription.id, transcription_path(transcription) %></td>
-        <td><%= transcription.user_id %></td>
-        <td><%= transcription.tag_ids %></td>
         <td><%= transcription.name %></td>
         <td><%= transcription.description %></td>
-        <td><%= transcription.path_to_audio %></td>
         <td><%= transcription.text %></td>
         <td><%= transcription.date_created %></td>
        
