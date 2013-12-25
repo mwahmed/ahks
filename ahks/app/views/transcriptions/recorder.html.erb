@@ -6,13 +6,14 @@
 <script type="text/javascript"
   src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
 
-<embed src="<%= asset_path('Wami.swf') %>"/>
+<!-- <embed src="<%= asset_path('Wami.swf') %>"/> -->
 
 <!-- Setup the recorder interface -->
 <%=javascript_include_tag "recorder" %>
 <%=javascript_include_tag "gui" %>
 <%=javascript_include_tag "jquery" %>
-<script>
+
+<script type="text/javascript">
 
   function setup() {
     Wami.setup("wami");
@@ -20,7 +21,8 @@
   
   function record() {
     //status("Recording...");
-    Wami.startRecording("/file?filemame=test.wav");
+    var id = '<%= @transcription.id %>';
+    Wami.startRecording("/file?id="+id);
   }
 
   function play() {
@@ -37,6 +39,7 @@
   function status(msg) {
     $('#status1').hide();
   }
+
 </script>
 </head>
 

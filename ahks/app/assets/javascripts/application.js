@@ -13,5 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require turbolinks
 //= require_tree .
+$(function() {
+  $.ajaxSetup({
+    beforeSend: function ( xhr ) {
+      xhr.setRequestHeader("Accept", "text/javascript") 
+    }
+  });
+});

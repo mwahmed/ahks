@@ -5,6 +5,8 @@ Ahks::Application.routes.draw do
   resources :tags
 
   root :to =>'static#index'
+  post 'file' => 'transcriptions#file'
+  get 'recorder' => 'transcriptions#recorder'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

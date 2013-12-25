@@ -1,5 +1,6 @@
 class TranscriptionsController < ApplicationController
   before_action :set_transcription, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token  
   before_filter :authenticate_user!
   # GET /transcriptions
   # GET /transcriptions.json
@@ -26,11 +27,11 @@ class TranscriptionsController < ApplicationController
   # POST /transcriptions.json
   def create
     @transcription = Transcription.new(transcription_params)
-
+    @transcription.date_created = Time.now
     respond_to do |format|
       if @transcription.save
-        format.html { redirect_to @transcription, notice: 'Transcription was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @transcription }
+        format.html { redirect_to :action=>"recorder", :transcription=>@transcription, :notice => 'Please start your recording or upload an audio file' }
+        format.json { render action: 'index', status: :created }
       else
         format.html { render action: 'new' }
         format.json { render json: @transcription.errors, status: :unprocessable_entity }
@@ -41,9 +42,10 @@ class TranscriptionsController < ApplicationController
   # PATCH/PUT /transcriptions/1
   # PATCH/PUT /transcriptions/1.json
   def update
+    @transcription.date_created = Time.now
     respond_to do |format|
       if @transcription.update(transcription_params)
-        format.html { redirect_to @transcription, notice: 'Transcription was successfully updated.' }
+        format.html { redirect_to :action=>'recorder', :transcription=>@transcription, :notice=> 'Transcription was successfully updated.'}
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -60,6 +62,32 @@ class TranscriptionsController < ApplicationController
       format.html { redirect_to transcriptions_url }
       format.json { head :no_content }
     end
+  end
+
+
+  def recorder
+    @transcription = Transcription.find(params[:transcription])
+    # Rails.logger.debug("debug::" + @transcription.name)
+  end
+
+  def file
+  Rails.logger.debug("debug::" + params.to_s)
+  @transcription = Transcription.find(params[:id])
+  @user = @transcription.user
+  _path = Rails.root.to_s + '/public/' + @user.id.to_s
+  
+  Dir.mkdir(_path) unless File.exists?(_path)
+
+
+  file = File.new("#{_path}/#{@transcription.id}.wav", "w+b")
+  file.write request.raw_post
+  file.close
+    
+  file = File.new("#{_path}/#{@transcription.id}.flac", "w+b")
+  file.write request.raw_post
+  file.close
+    
+  render json: params
   end
 
   private
