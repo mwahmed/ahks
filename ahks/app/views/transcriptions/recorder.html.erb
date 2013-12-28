@@ -34,6 +34,8 @@
     //status("");
     Wami.stopRecording();
     Wami.stopPlaying();
+    var notice = "Transcription was successfully stored."
+    window.location = '/transcriptions?notice=' + notice;
   }
 
   function status(msg) {

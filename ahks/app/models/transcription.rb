@@ -1,5 +1,11 @@
 class Transcription
   include Mongoid::Document
+  include Mongoid::Paperclip
+
+  has_mongoid_attached_file :audio,
+        :path => ":rails_root/public/audio/:attachment/:id/:style/:filename",
+	    :url => "/audio/:attachment/:id/:style/:filename"
+
   belongs_to :user
   has_and_belongs_to_many :tags
   field :name, type: String

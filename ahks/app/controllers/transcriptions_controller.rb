@@ -5,6 +5,7 @@ class TranscriptionsController < ApplicationController
   # GET /transcriptions
   # GET /transcriptions.json
   def index
+     flash.now[:notice] = params[:notice] if !params[:notice].nil?
      @transcriptions = current_user.transcriptions
 #    @transcriptions = Transcription.all
   end
@@ -21,6 +22,7 @@ class TranscriptionsController < ApplicationController
 
   # GET /transcriptions/1/edit
   def edit
+    flash.now[:alert] = "New Upload or 'Continue to Record' will overwrite the previously stored audio."
   end
 
   # POST /transcriptions
@@ -30,8 +32,13 @@ class TranscriptionsController < ApplicationController
     @transcription.date_created = Time.now
     respond_to do |format|
       if @transcription.save
-        format.html { redirect_to :action=>"recorder", :transcription=>@transcription, :notice => 'Please start your recording or upload an audio file' }
-        format.json { render action: 'index', status: :created }
+        if params[:done].nil?
+          format.html { redirect_to :action=>"recorder", :transcription=>@transcription }
+          format.json { render action: 'index', status: :created }
+        else
+          format.html { redirect_to "/transcriptions", :notice => 'Transcription was successfully stored.' }
+          format.json { render action: 'index', status: :created }
+        end
       else
         format.html { render action: 'new' }
         format.json { render json: @transcription.errors, status: :unprocessable_entity }
@@ -45,8 +52,13 @@ class TranscriptionsController < ApplicationController
     @transcription.date_created = Time.now
     respond_to do |format|
       if @transcription.update(transcription_params)
-        format.html { redirect_to :action=>'recorder', :transcription=>@transcription, :notice=> 'Transcription was successfully updated.'}
-        format.json { head :no_content }
+        if params[:done].nil?
+          format.html { redirect_to :action=>'recorder', :transcription=>@transcription}
+          format.json { head :no_content }
+        else
+          format.html { redirect_to "/transcriptions", :notice=> 'Transcription was successfully stored.'}
+          format.json { head :no_content }
+        end
       else
         format.html { render action: 'edit' }
         format.json { render json: @transcription.errors, status: :unprocessable_entity }
@@ -57,6 +69,14 @@ class TranscriptionsController < ApplicationController
   # DELETE /transcriptions/1
   # DELETE /transcriptions/1.json
   def destroy
+    _path_flac = Rails.root.to_s + '/public/' + current_user.id.to_s + "/" + @transcription.id.to_s + ".flac"
+    _path_wav = Rails.root.to_s + '/public/' + current_user.id.to_s + "/" + @transcription.id.to_s + ".wav"
+    
+    if File.exist?(_path_flac)
+      File.delete(_path_flac)
+      File.delete(_path_wav)
+    end
+
     @transcription.destroy
     respond_to do |format|
       format.html { redirect_to transcriptions_url }
