@@ -118,6 +118,6 @@ class TranscriptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transcription_params
-      params.require(:transcription).permit(:name, :description, :path_to_audio, :text, :user_id, :date_created)
+      params.require(:transcription).permit(:name, :description, :path_to_audio, :text, :user_id, :date_created, :tag_ids=>[])
     end
 end
