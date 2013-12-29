@@ -3,8 +3,8 @@ class Transcription
   include Mongoid::Paperclip
 
   has_mongoid_attached_file :audio,
-        :path => ":rails_root/public/audio/:attachment/:id/:style/:filename",
-	    :url => "/audio/:attachment/:id/:style/:filename"
+        :path => ":rails_root/public/audio/uploads/:id/:filename",
+	      :url => "/audio/uploads/:id/:filename"
 
   belongs_to :user
   has_and_belongs_to_many :tags
@@ -14,5 +14,5 @@ class Transcription
   field :text, type: String
   field :user_id, type: String
   field :date_created, type: String
-  
+
 end

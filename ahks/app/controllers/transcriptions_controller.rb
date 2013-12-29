@@ -30,6 +30,16 @@ class TranscriptionsController < ApplicationController
   def create
     @transcription = Transcription.new(transcription_params)
     @transcription.date_created = Time.now
+    
+    if params[:done].nil?
+      # User used online audio recorder
+      _path = Rails.root.to_s + '/public/audio/flash/' + current_user.id.to_s + "/" + @transcription.id.to_s + ".flac"
+      @transcription.path_to_audio = _path
+    else
+      # User uploaded audio
+      @transcription.path_to_audio = @transcription.audio.path
+    end
+
     respond_to do |format|
       if @transcription.save
         if params[:done].nil?
@@ -50,6 +60,15 @@ class TranscriptionsController < ApplicationController
   # PATCH/PUT /transcriptions/1.json
   def update
     @transcription.date_created = Time.now
+
+    if params[:done].nil?
+      # User used online audio recorder
+      _path = Rails.root.to_s + '/public/audio/flash/' + current_user.id.to_s + "/" + @transcription.id.to_s + ".flac"
+      @transcription.path_to_audio = _path
+    else
+      # User uploaded audio
+      @transcription.path_to_audio = @transcription.audio.path
+    end
     respond_to do |format|
       if @transcription.update(transcription_params)
         if params[:done].nil?
@@ -69,13 +88,14 @@ class TranscriptionsController < ApplicationController
   # DELETE /transcriptions/1
   # DELETE /transcriptions/1.json
   def destroy
-    _path_flac = Rails.root.to_s + '/public/' + current_user.id.to_s + "/" + @transcription.id.to_s + ".flac"
-    _path_wav = Rails.root.to_s + '/public/' + current_user.id.to_s + "/" + @transcription.id.to_s + ".wav"
+    _path_flac = Rails.root.to_s + '/public/audio/flash/' + current_user.id.to_s + "/" + @transcription.id.to_s + ".flac"
+    _path_wav = Rails.root.to_s + '/public/audio/flash/' + current_user.id.to_s + "/" + @transcription.id.to_s + ".wav"
     
     if File.exist?(_path_flac)
       File.delete(_path_flac)
       File.delete(_path_wav)
     end
+    @transcription.audio.destroy
 
     @transcription.destroy
     respond_to do |format|
@@ -91,10 +111,10 @@ class TranscriptionsController < ApplicationController
   end
 
   def file
-  Rails.logger.debug("debug::" + params.to_s)
+  #Rails.logger.debug("debug::" + params.to_s)
   @transcription = Transcription.find(params[:id])
   @user = @transcription.user
-  _path = Rails.root.to_s + '/public/' + @user.id.to_s
+  _path = Rails.root.to_s + '/public/audio/flash/' + @user.id.to_s
   
   Dir.mkdir(_path) unless File.exists?(_path)
 
@@ -118,6 +138,6 @@ class TranscriptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transcription_params
-      params.require(:transcription).permit(:name, :description, :path_to_audio, :text, :user_id, :date_created, :tag_ids=>[])
+      params.require(:transcription).permit(:name, :description, :path_to_audio, :text, :user_id, :date_created, :audio, :tag_ids=>[])
     end
 end
