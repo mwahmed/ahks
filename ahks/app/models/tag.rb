@@ -6,4 +6,6 @@ class Tag
   field :description, type: String
   field :user_id, type: String
   field :date_created, type: String
+
+  validates_presence_of :name, :description
 end
