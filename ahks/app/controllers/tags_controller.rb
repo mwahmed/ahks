@@ -5,6 +5,7 @@ class TagsController < ApplicationController
   # GET /tags.json
   def index
     #@tags = Tag.all
+    @nav_select = "tags"
     @tags = current_user.tags
   end
 

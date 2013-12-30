@@ -5,6 +5,7 @@ class TranscriptionsController < ApplicationController
   # GET /transcriptions
   # GET /transcriptions.json
   def index
+     @nav_select = "transcriptions"
      flash.now[:notice] = params[:notice] if !params[:notice].nil?
      @transcriptions = current_user.transcriptions
 #    @transcriptions = Transcription.all
