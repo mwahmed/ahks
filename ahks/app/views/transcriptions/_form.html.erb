@@ -5,7 +5,7 @@
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
+      <%= f.text_field :name, :class => 'text_field', :autofocus => true %>
     </div>
   </div>
 
@@ -41,6 +41,6 @@
     <%= f.submit "Done", :name=>"done", :class => 'btn btn-primary' %>
     <%= f.submit "Continue to Record Audio", :name => "Continue to Record Audio",   :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                transcriptions_path, :class => 'btn' %>
+                transcriptions_path, :class => 'btn btn-danger' %>
   </div>
 <% end %>
