@@ -26,7 +26,7 @@ A transcription can be saved without an attachment. You can edit the transcripti
     <%= f.label :tag_ids, "Tags", :class => 'control-label' %>
     <div class="controls">
     <%= collection_select 'transcription', 'tag_ids',
-        Tag.all, :id, :name, 
+        current_user.tags, :id, :name, 
         { }, 
         { :multiple => true, 
           :name =>'transcription[tag_ids][]',
