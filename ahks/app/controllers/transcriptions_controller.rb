@@ -23,7 +23,7 @@ class TranscriptionsController < ApplicationController
 
   # GET /transcriptions/1/edit
   def edit
-    flash.now[:alert] = "New Upload or 'Continue to Record' will overwrite the previously stored audio."
+    flash.now[:info] = "New Upload or 'Continue to Record' will overwrite the previously stored audio."
   end
 
   # POST /transcriptions

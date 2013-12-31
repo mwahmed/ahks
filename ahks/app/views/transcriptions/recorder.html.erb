@@ -45,6 +45,7 @@
 </head>
 
 <body onload="setup()">
+<div class="container">
   <input type="image" Title="Record" alt="Record" src="/assets/record.png" onclick="record();$('#status').show()"></input>
   <input type="image" Title="Stop" alt="Stop" src="/assets/stop.png" onclick="stop();$('#status').hide();$('#status1').hide()"></input>
   <input type="image" Title="Play" alt="Play" src="/assets/play.png" onclick="play();$('#status1').show()"></input>
@@ -57,5 +58,6 @@
     <h2> <input type="image" src="/assets/volume.png"> Playing ...</input> </h2>
   </div>
   <div id="wami"></div>
+</div>
 </body>
 </html>
