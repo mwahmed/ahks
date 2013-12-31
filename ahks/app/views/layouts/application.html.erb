@@ -37,7 +37,10 @@
     <%= javascript_include_tag "application" %>
     <script type="text/javascript">
       $(document).ready(function(){
-           $("#<%= @nav_select %>").addClass("active");
+          $("#<%= @nav_select %>").addClass("active");
+
+          $('.alert-success').fadeOut(5000, function() { $('.alert-success').remove();});        
+         
            // Activates the Carousel
             $('.carousel').carousel({
               interval: 5000
