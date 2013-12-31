@@ -1,3 +1,11 @@
+<div class="alert alert-info" style="text-align:left;">
+  <a class="close" data-dismiss="alert">×</a>
+  <div class="container">
+  1. You can either choose to upload your recording or you can continue and use our recorder
+  <br />
+  2. A transcription can be saved without an attachment/recording. You can edit the transcription at a later time and upload/record.
+</div>
+</div>
 <%= form_for @transcription, :html => { :class => 'form-horizontal', :multipart => true} do |f| %>
   <div class="control-group">
   <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -5,7 +13,7 @@
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :name, :class => 'text_field', :autofocus => true %>
+      <%= f.text_field :name, :class => 'text_field', :autofocus => true, :required => "required" %>
     </div>
   </div>
 
@@ -24,7 +32,8 @@
         { }, 
         { :multiple => true, 
           :name =>'transcription[tag_ids][]',
-          :selected => 0 } %>
+          :selected => 0,
+          :required => "required" } %>
     </div> 
   </div>
 
@@ -38,7 +47,7 @@
 
 
   <div class="form-actions">
-    <%= f.submit "Done", :name=>"done", :class => 'btn btn-primary' %>
+    <%= f.submit "Save", :name=>"done", :class => 'btn btn-success' %>
     <%= f.submit "Continue to Record Audio", :name => "Continue to Record Audio",   :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 transcriptions_path, :class => 'btn btn-danger' %>
