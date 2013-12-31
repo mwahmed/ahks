@@ -1,9 +1,7 @@
 <div class="alert alert-info" style="text-align:left;">
   <a class="close" data-dismiss="alert">×</a>
   <div class="container">
-  1. You can either choose to upload your recording or you can continue and use our recorder
-  <br />
-  2. A transcription can be saved without an attachment/recording. You can edit the transcription at a later time and upload/record.
+A transcription can be saved without an attachment. You can edit the transcription at a later time and upload/record.
 </div>
 </div>
 <%= form_for @transcription, :html => { :class => 'form-horizontal', :multipart => true} do |f| %>
@@ -41,6 +39,8 @@
     <%= f.label "Upload", :class => 'control-label' %>
     <div class="controls">
         <%= f.file_field :audio %>
+        <span class="help-block">Skip "Continue to Record" if you are uploading.</span>
+
     </div>
   </div>
 
