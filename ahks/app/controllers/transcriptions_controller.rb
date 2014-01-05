@@ -31,6 +31,7 @@ class TranscriptionsController < ApplicationController
   def create
     @transcription = Transcription.new(transcription_params)
     @transcription.date_created = Time.now
+    @transcription.text = ""
     
     if params[:done].nil?
       # User used online audio recorder
@@ -61,7 +62,7 @@ class TranscriptionsController < ApplicationController
   # PATCH/PUT /transcriptions/1.json
   def update
     @transcription.date_created = Time.now
-
+    @transcription.text = "" if @transcription.text.nil?
     if params[:done].nil?
       # User used online audio recorder
       _path = Rails.root.to_s + '/public/audio/flash/' + current_user.id.to_s + "/" + @transcription.id.to_s + ".flac"
@@ -123,11 +124,10 @@ class TranscriptionsController < ApplicationController
   file = File.new("#{_path}/#{@transcription.id}.wav", "w+b")
   file.write request.raw_post
   file.close
-    
-  file = File.new("#{_path}/#{@transcription.id}.flac", "w+b")
-  file.write request.raw_post
-  file.close
-    
+
+  
+  `echo "/home/user/496_web/ahks/ahks/script/init_transcribe.sh #{_path}/#{@transcription.id} #{@transcription.id}"| at now`
+
   render json: params
   end
 
