@@ -13,8 +13,7 @@ test/version_tmp
 tmp
 ahks/public/audio/*
 ahks/tmp/*
-ahks/speech/seg_audio/*
-ahks/speech/summary/*
+
 
 # YARD artifacts
 .yardoc
