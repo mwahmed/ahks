@@ -6,7 +6,7 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-
+	2.0.0
 * System dependencies
 
 * Configuration
@@ -26,3 +26,32 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+Sunspot Rails search
+	gem 'sunspot_rails'
+	gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
+
+	Bundle it!
+
+	bundle install
+
+	Generate a default configuration file:
+
+	rails generate sunspot_rails:install
+
+	If sunspot_solr was installed, start the packaged Solr distribution with:
+
+	bundle exec rake sunspot:solr:start # or sunspot:solr:run to start in foreground
+
+	  include Sunspot::Mongoid
+	  searchable do
+	    text :title
+	  end
+
+	  Whenever you make changes to how your models are indexed, you will need to rebuild your index for any existing data in your database. To do so, run Sunspot's "reindex" rake task:
+
+		  bundle exec rake sunspot:reindex
+
+Transcription.all.each do |r|
+Sunspot.index(r)
+end

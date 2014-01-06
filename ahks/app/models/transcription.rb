@@ -9,6 +9,14 @@ class Transcription
   belongs_to :user
   has_and_belongs_to_many :tags
   
+  include Sunspot::Mongoid
+  searchable do
+    text :name, :boost => 4
+    text :description, :boost => 3
+    text :text, :boost => 5
+
+  end
+
   field :name, type: String
   field :description, type: String
   field :path_to_audio, type: String
