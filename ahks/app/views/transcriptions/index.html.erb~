@@ -46,7 +46,7 @@
  
 		      <%= submit_tag "Summary", :name => nil, :class=>"btn btn-min btn-primary" %>
 		  <% end %>		
-		
+		<%= link_to "Summary", summary_path(:id => transcription.id), :class => 'btn btn-primary btn-mini' %>
                 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                             transcription_path(transcription),
                             :method => :delete,

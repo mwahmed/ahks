@@ -130,7 +130,7 @@ class TranscriptionsController < ApplicationController
   def summary
 	@transcription = Transcription.find(params[:id])
 	_length = params[:summary_length]
-	@summary = `python /home/ubuntu/falcon/summarizer/summarizer.py #{@transcription.id} #{_length}`
+	@summary = `python /home/ubuntu/falcon/summarizer/summarizer.py #{@transcription.id} 50`
 
   end
 
