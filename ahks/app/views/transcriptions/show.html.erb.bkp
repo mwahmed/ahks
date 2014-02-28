@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+<!-- swfobject is a commonly used library to embed Flash content -->
+
+<script type="text/javascript"
+  src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+<embed src="<%= asset_path('Wami.swf') %>"/>
+
+<!-- Setup the recorder interface -->
+<%=javascript_include_tag "recorder" %>
+<%=javascript_include_tag "gui" %>
+<%=javascript_include_tag "jquery" %>
+<script>
+
+  function setup() {
+    Wami.setup("wami");
+  }
+  
+  function record() {
+    //status("Recording...");
+    Wami.startRecording("/file?filemame=test.wav");
+  }
+
+  function play() {
+    Wami.startPlaying("/test.wav");
+    status("hello");
+  }
+
+  function stop() {
+    //status("");
+    Wami.stopRecording();
+    Wami.stopPlaying();
+  }
+
+  function status(msg) {
+    $('#status1').hide();
+  }
+</script>
+</head>
+
+<body onload="setup()">
+  <input type="image" Title="Record" alt="Record" src="/assets/record.png" onclick="record();$('#status').show()"></input>
+  <input type="image" Title="Stop" alt="Stop" src="/assets/stop.png" onclick="stop();$('#status').hide();$('#status1').hide()"></input>
+  <input type="image" Title="Play" alt="Play" src="/assets/play.png" onclick="play();$('#status1').show()"></input>
+  <br/>
+  <div id="status" style="display:none">
+    <h2> <input type="image" src="/assets/microphone.png"> Recording ...</input> </h2>
+  </div>
+
+  <div id="status1" style="display:none">
+    <h2> <input type="image" src="/assets/volume.png"> Playing ...</input> </h2>
+  </div>
+  <div id="wami"></div>
+</body>
+</html>

@@ -1,7 +1,19 @@
 <div class="container">
 	<div class="well">
 		<h1> Summary </h1>
+		<% if @summary.size > 0 %>		
+		
+		<%= highlight(@summary[0], @summary[1].split) %>
+		<h1> Top Words </h1>
 
-		<%= @summary %>
+		<% @summary[1].split(" ").each do |w| %>
+		
+			<p> <%= w %></p>
+
+		<% end %>
+
+		<% else %>
+		<p> No Result </p>
+		<% end  %>
 	</div>
 </div>

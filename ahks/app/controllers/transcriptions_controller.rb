@@ -28,6 +28,7 @@ class TranscriptionsController < ApplicationController
   # GET /transcriptions/1
   # GET /transcriptions/1.json
   def show
+	
   end
 
   # GET /transcriptions/new
@@ -62,7 +63,9 @@ class TranscriptionsController < ApplicationController
           format.html { redirect_to :action=>"recorder", :transcription=>@transcription }
           format.json { render action: 'index', status: :created }
         else
+	  if !@transcription.path_to_audio.nil?
           `echo "#{Rails.root}/script/init_transcribe.sh #{@transcription.path_to_audio} #{@transcription.id} upload #{@transcription.path_to_audio.gsub('.wav','')}"| at now`
+	  end
           format.html { redirect_to "/transcriptions", :notice => 'Transcription was successfully stored.' }
           format.json { render action: 'index', status: :created }
         end
@@ -129,8 +132,25 @@ class TranscriptionsController < ApplicationController
 
   def summary
 	@transcription = Transcription.find(params[:id])
-	_length = params[:summary_length]
-	@summary = `python /home/ubuntu/falcon/summarizer/summarizer.py #{@transcription.id} #{_length}`
+
+	@length = params[:summary_length].empty? ? "50" : params[:summary_length]
+	_z = params[:zwords]
+	_az = params[:antiz]
+	
+	_delimiter = @transcription.text.include?("\n") ? "newline" : "fullstop"
+	
+	@result = `python /home/ubuntu/falcon/summarizer/summarizer.py #{@transcription.id} #{@length} '#{_z}' '#{_az}' #{_delimiter}`
+
+	@summary = @result.split(";;;ayush;;;")
+
+  end
+
+
+  def deliverables
+	@transcription = Transcription.find(params[:id])
+	@type = params[:type]
+	
+#	@result = `python /home/ubuntu/falcon/extract/extract2.py #{@transcription.id} #{_type}`
 
   end
 

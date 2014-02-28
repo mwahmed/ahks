@@ -9,19 +9,19 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
           <div class="item active">
-            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+            <div class="fill" style="background-image:url('1home.jpg');"></div>
             <div class="carousel-caption">
               <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h1>
             </div>
           </div>
           <div class="item">
-            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+            <div class="fill" style="background-image:url('2home.jpg');"></div>
             <div class="carousel-caption">
               <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h1>
             </div>
           </div>
           <div class="item">
-            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+            <div class="fill" style="background-image:url('3home.jpg');"></div>
             <div class="carousel-caption">
               <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h1>
             </div>
@@ -39,12 +39,12 @@
 <div class="container">
 	<% if user_signed_in? %>
 
-	<h3>you have succesfully signed in</h3>
-	<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+	<h3>Welcome Back!</h3>
+	
 
 	<% else %>
 
-	<h1> Welcome to ECE 496 </h1>
+	<h1> Welcome to Speech Summarizer by Team 189 </h1>
 	<%= link_to "Sign In", new_user_session_path, :method => :get %>
 	<%= link_to "Sign up", new_user_registration_path, :method => :get %>
 
