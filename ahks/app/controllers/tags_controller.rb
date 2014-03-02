@@ -12,6 +12,7 @@ class TagsController < ApplicationController
   # GET /tags/1
   # GET /tags/1.json
   def show
+    @transcriptions = @tag.transcriptions
   end
 
   # GET /tags/new
