@@ -31,7 +31,13 @@
             <% @transcriptions.each do |transcription| %>
             <tr>
                <td><%= link_to transcription.name, "/transcriptions/#{transcription.id}?q=#{params[:search]}"%></td>
-               <td><%= transcription.description %></td>
+               <td>
+                  <% if transcription.description.length>100 %>
+                     <%= truncate(transcription.description.to_s, length: 100) %> <%= link_to "more", "/transcriptions/#{transcription.id}?q=#{params[:search]}"%>
+                  <% else %>
+                     <%= transcription.description.to_s%>
+                  <% end %>
+               </td>
                <% if !params[:search].nil?%>
                <td>
                   <table>
@@ -43,12 +49,12 @@
                         </td>
                      </tr>
                      <% end %>
-                     <%= link_to "Read More", "/transcriptions/#{transcription.id}?q=#{params[:search]}"%>
+                     <%= link_to "more", "/transcriptions/#{transcription.id}?q=#{params[:search]}"%>
                   </table>
                </td>
                <% else %>
                <td><% if transcription.text.length>250 %>
-                  <%= truncate(transcription.text.to_s.gsub("\n",". "), length: 250) %> <%= link_to "Read More", "/transcriptions/#{transcription.id}?q=#{params[:search]}"%>
+                  <%= truncate(transcription.text.to_s.gsub("\n",". "), length: 250) %> <%= link_to "more", "/transcriptions/#{transcription.id}?q=#{params[:search]}"%>
                   <% else %>
                   <%= transcription.text.to_s.gsub("\n",". ")%>
                   <% end %>
@@ -123,7 +129,7 @@
                   <p> 
                         <%transcription.tags.each do |tag|%>
                         <div style="float:left;margin-right:2px;margin-top:0px;">
-                           <%= button_to "#{tag.name}", tag, :method => "get", :class => "btn-tags btn btn-mini" %>
+                           <%= button_to "#{tag.name}", tag, :method => "get", :class => "btn-tags btn btn-small" %>
                         </div>
                      <%end%>
                   </p>

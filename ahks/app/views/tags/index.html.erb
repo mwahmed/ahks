@@ -16,9 +16,9 @@
   <tbody>
     <% @tags.each do |tag| %>
       <tr id="#{tag.id}">
-        <td><%= tag.name %></td>
+        <td><%= link_to tag.name, tag%></td>
         <td><%= tag.description %></td>
-        <td><%= tag.date_created%></td>
+        <td><%= tag.date_created.to_time.strftime('%e %b, %y at %I:%M %p')%></td>
         
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
