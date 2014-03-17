@@ -55,3 +55,7 @@ Sunspot Rails search
 Transcription.all.each do |r|
 Sunspot.index(r)
 end
+
+Document.all.each do |r|
+Sunspot.index(r)
+end

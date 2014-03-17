@@ -8,6 +8,7 @@ class User
 
   #attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   has_many :transcriptions, dependent: :destroy, counter_cache: true
+  has_many :documents, dependent: :destroy, counter_cache: true
   has_many :tags, dependent: :destroy, counter_cache: true
   ## Database authenticatable
   field :email,              :type => String, :default => ""

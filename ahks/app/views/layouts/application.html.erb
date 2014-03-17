@@ -57,6 +57,7 @@
         <% if user_signed_in? %>
           <li id='tags'><%= link_to " myTags", "/tags", :class => "icon-tags"  %></li>
           <li id='transcriptions'><%= link_to " myTranscriptions", "/transcriptions", :class => "icon-microphone" %></li>
+          <li id='documents'><%= link_to " myDocuments", "/documents", :class => "icon-file" %></li>
         <% end %>
         <li id='about'><%= link_to " About", "#", :class => "icon-info-sign"  %></li>
         <li id='contact'><%= link_to " Contact", "#" , :class => "icon-envelope" %></li>
