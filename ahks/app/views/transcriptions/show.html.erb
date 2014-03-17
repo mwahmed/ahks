@@ -7,20 +7,22 @@
       <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
       <dd><%= @transcription.name %></dd>
       <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-      <dd><%= @transcription.description %></dd>
+      <dd><%= @transcription.description %></dd> <br />
       <dt><strong>Transcription Text:</strong></dt>
       <% if params[:q].empty? %>
-      <dd><%= @transcription.text %></dd>
+      <pre><dd><%= @transcription.text %></dd></pre>
       <% else%>
       <dd>
          <table>
             <% i=0 %>
             <% @transcription.text.split("\n").each do |t|%>
-            <tr>
-               <td> <%=i%>:00-<%=i+2%>:00 <% i+=2%></td>
-               <td> <%= highlight(t, params[:q].split) %>
-               </td>
-            </tr>
+            <pre>
+               <tr>
+                  <td> <%=i%>:00-<%=i+2%>:00 <% i+=2%></td>
+                  <td> <%= highlight(t, params[:q].split) %>
+                  </td>
+               </tr>
+            </pre>
             <% end %>
          </table>
       </dd>
