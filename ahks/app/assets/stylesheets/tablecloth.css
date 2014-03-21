@@ -1,18 +1,25 @@
 .table th.center, .table td.center  { text-align:center; }
 .table th.right, .table td.right    { text-align:right; }
 
-.table th.headerSortable:hover {
-  cursor:pointer;
-}
-.table th.headerSortDown {
+.table th{
   background-image: url('asc.gif');
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: center right;
   padding-right:16px !important;
 }
-.table th.headerSortUp {
+.table th.headerSortable:hover {
+  cursor:pointer;
+}
+.table th.headerSortDown {
   background-image: url('desc.gif');
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center right;
+  padding-right:16px !important;
+}
+.table th.headerSortUp {
+  background-image: url('asc.gif');
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: center right;
