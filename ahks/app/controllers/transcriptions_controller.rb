@@ -137,9 +137,9 @@ class TranscriptionsController < ApplicationController
 	_z = params[:zwords]
 	_az = params[:antiz]
 	
-	_delimiter = @transcription.text.include?("\n") ? "newline" : "fullstop"
-	
-	@result = `python /home/ubuntu/falcon/summarizer/summarizer.py #{@transcription.id} #{@length} '#{_z}' '#{_az}' #{_delimiter}`
+	_delimiter = @transcription.text.include?(".") ? "fullstop" : "newline"
+	@d = _delimiter
+	@result = `python /home/ubuntu/falcon/summarizer/summarizer.py #{@transcription.id} #{@length} '#{_z}' '#{_az}' #{_delimiter} 'transcriptions'`
 
 	@summary = @result.split(";;;ayush;;;")
 
@@ -150,7 +150,8 @@ class TranscriptionsController < ApplicationController
 	@transcription = Transcription.find(params[:id])
 	@type = params[:type]
 	
-#	@result = `python /home/ubuntu/falcon/extract/extract2.py #{@transcription.id} #{_type}`
+	@result = `python /home/ubuntu/falcon/extract/extractHandle.py #{@transcription.id} 'transcriptions' #{@type}`
+	@re_array = @result.split(";;;spandan;;;")
 
   end
 

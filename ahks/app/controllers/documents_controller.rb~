@@ -100,7 +100,7 @@ class DocumentsController < ApplicationController
 	
 	_delimiter = "fullstop"
 	
-	@result = `python /home/ubuntu/falcon/summarizer/summarizer.py #{@document.id} #{@length} '#{_z}' '#{_az}' #{_delimiter} 'documents'`
+	@result = `python /home/ubuntu/falcon/summarizer/summarizer.py #{@document.id} #{@length} '#{_z}' '#{_az}' #{_delimiter}`
 
 	@summary = @result.split(";;;ayush;;;")
 

@@ -87,6 +87,7 @@
             <ul class="list-group">
               <li class="list-group-item">5 Projects</li>
               <li class="list-group-item">5 GB of Storage</li>
+              <li class="list-group-item">Up to 100 Users</li>
               <li class="list-group-item">10 GB Bandwidth</li>
               <li class="list-group-item">Security Suite</li>
               <li class="list-group-item"><%= button_to "Sign up now!", new_user_registration_path, :method => "get", :class => "btn btn-large btn-primary" %></li>
@@ -104,6 +105,7 @@
             <ul class="list-group">
               <li class="list-group-item">10 Projects</li>
               <li class="list-group-item">10 GB of Storage</li>
+              <li class="list-group-item">Up to 250 Users</li>
               <li class="list-group-item">25 GB Bandwidth</li>
               <li class="list-group-item">Security Suite</li>
               <li class="list-group-item"><%= button_to "Sign up now!", new_user_registration_path, :method => "get", :class => "btn btn-large btn-primary" %></li>
@@ -121,6 +123,7 @@
             <ul class="list-group">
               <li class="list-group-item">Unlimited</li>
               <li class="list-group-item">50 GB of Storage</li>
+              <li class="list-group-item">Up to 1000 Users</li>
               <li class="list-group-item">100 GB Bandwidth</li>
               <li class="list-group-item">Security Suite</li>
               <li class="list-group-item"><%= button_to "Sign up now!", new_user_registration_path, :method => "get", :class => "btn btn-large btn-primary" %></li>
@@ -138,6 +141,7 @@
             <ul class="list-group">
               <li class="list-group-item">Unlimited</li>
               <li class="list-group-item">150 GB of Storage</li>
+              <li class="list-group-item">Unlimited</li>
               <li class="list-group-item">500 GB Bandwidth</li>
               <li class="list-group-item">Security Suite</li>
               <li class="list-group-item"><%= button_to "Sign up now!", new_user_registration_path, :method => "get", :class => "btn btn-large btn-primary" %></li>

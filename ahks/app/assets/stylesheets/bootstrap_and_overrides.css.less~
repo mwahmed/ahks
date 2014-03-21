@@ -36,10 +36,6 @@ body {
   padding-top: 50px; /* body padding for fixed top nav */
 }
 
-input {
-	max-width: 100%;
-} 
-
 .img-home-portfolio,
 .img-customer,
 .portfolio-item {

@@ -44,7 +44,7 @@
             </div>
             <div id="collapseOne<%=@document.id%>" class="panel-collapse collapse ">
                <div class="panel-body">
-                  <%= form_tag doc_summary_path, :method => :get do %>
+                  <%= form_tag summary_path, :method => :get do %>
                   <table>
                      <tr>
                         <td>

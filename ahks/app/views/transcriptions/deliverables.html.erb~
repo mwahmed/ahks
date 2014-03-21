@@ -6,7 +6,7 @@
 			
 			<p> <%e= r.split("++++") %> <%= highlight(e[0], e[1].split) if !e[1].nil?%></p>
 	
-		<% end %>
+		<%end %>
 	</div>
 </div>
 
