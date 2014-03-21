@@ -1,0 +1,47 @@
+.table th.center, .table td.center  { text-align:center; }
+.table th.right, .table td.right    { text-align:right; }
+
+.table th.headerSortable:hover {
+  cursor:pointer;
+}
+.table th.headerSortDown {
+  background-image: url('asc.gif');
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center right;
+  padding-right:16px !important;
+}
+.table th.headerSortUp {
+  background-image: url('desc.gif');
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center right;
+  padding-right:16px !important;
+}
+
+.table tr.highlight td,         .table tr.highlight:hover td,
+.table td.highlight,            .table td.highlight:hover             { background:#2C3539 !important; }
+.table tr.highlight-primary td, .table tr.highlight-primary:hover td,
+.table td.highlight-primary,    .table td.highlight-primary:hover     { background:#2C3539 !important; color:#FFF; }
+.table tr.highlight-info td,    .table tr.highlight-info:hover td,
+.table td.highlight-info,       .table td.highlight-info:hover        { background:#2C3539 !important; color:#FFF; }
+.table tr.highlight-success td, .table tr.highlight-success:hover td,
+.table td.highlight-success,    .table td.highlight-success:hover     { background:#2C3539 !important; color:#FFF; }
+.table tr.highlight-warning td, .table tr.highlight-warning:hover td,
+.table td.highlight-warning,    .table td.highlight-warning:hover     { background:#2C3539 !important; color:#FFF; }
+.table tr.highlight-danger td,  .table tr.highlight-danger:hover td,
+.table td.highlight-danger,     .table td.highlight-danger:hover      { background:#2C3539 !important; color:#FFF; }
+.table tr.highlight-inverse td, .table tr.highlight-inverse:hover td,
+.table td.highlight-inverse,    .table td.highlight-inverse:hover     { background:#2C3539 !important; color:#FFF; }
+
+/* DEFAULT THEME */
+
+.table caption {
+  text-align:left;
+  padding:10px 0;
+}
+
+.table tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color:   #2C3539;
+  color: #FFF;
+}

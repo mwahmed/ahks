@@ -11,13 +11,13 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
-ahks/public/audio/*
-ahks/tmp/*
-ahks/speech/seg_audio/*
-ahks/speech/summary/*
-ahks/config/environments/*
-ahks/public/documents/
-ahks/solr
+./ahks/public/audio/*
+./ahks/tmp/*
+./ahks/speech/seg_audio/*
+./ahks/speech/summary/*
+./ahks/config/environments/*
+./ahks/public/documents/*
+./ahks/solr
 # YARD artifacts
 .yardoc
 _yardoc

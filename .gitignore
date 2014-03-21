@@ -17,7 +17,7 @@ tmp
 ./ahks/speech/summary/*
 ./ahks/config/environments/*
 ./ahks/public/documents/*
-./ahks/solr
+./ahks/solr/*
 # YARD artifacts
 .yardoc
 _yardoc
