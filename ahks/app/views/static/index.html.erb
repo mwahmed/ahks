@@ -41,8 +41,6 @@
       <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
     </div><!-- /.carousel -->
 
-
-
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -73,82 +71,140 @@
 
     </div><!-- /.container -->
 
-<div class="container">
+<div class ="container">
+<div class="paddingcnt" id="pricing">
     <div class="row-fluid">
+      <div class="span12">
+        <div class="pricing">
+          <div class="container">
+            <div class="row-fluid">
+              <div class="tables">
+                <div class="row-fluid">
+                
+                  <div class="span3 prblock prgreen">
+                    <div class="pt1">
+                      <h2>Basic</h2>    <!-- set title for this block here !-->
+                         <!-- set image for this block here !-->
+                      <div class="price">
+                        <h1>$2.99</h1>      <!-- set price for this block here !-->
+                        <p>price / month</p>
+                      </div><!--price-->
+                      <div class="content">
+                      
+                      </div><!--content-->
+                      <div class="plan-features">
+                        <p>20 Submissions </p>
+                        <p>1GB Storage</p>      <!-- set feature here !-->
+                        <p>5GB Bandwidth</p>     <!-- set feature here !-->
+                              <!-- set feature here !-->
+                        <p>Security Suite</p>      <!-- set feature here !-->
+                      </div><!--plan-features-->
+                      <div class="button">
+                        <%= link_to "Sign Up now!", new_user_registration_path %>  <!-- set url here !-->
+                      </div><!--button-->
+                    </div><!--pt1-->
+                  </div><!--span3-->
+                  
+                  <div class="span3 prblock prred">
+                    <div class="pt1">
+                      <h2>Plus</h2>   <!-- set title for this block here !-->
+                        <!-- set image for this block here !-->
+                      <div class="price2">
+                        <h1>$6.99</h1>      <!-- set price for this block here !-->
+                        <p>price / month</p>
+                      </div><!--price-->
+                      <div class="content">
+                      
+                      </div><!--content-->
+                      <div class="plan-features">
+                        <p> 100 Submissions </p>
+                        <p>5GB Storage</p>      <!-- set feature here !-->
+                        <p>15GB Bandwidth</p>     <!-- set feature here !-->
+                            <!-- set feature here !-->
+                        <p>Security Suite</p>      <!-- set feature here !-->
+                      </div><!--plan-features-->
+                      <div class="button">
+                        <%= link_to "Sign Up now!", new_user_registration_path %><!-- set url here !-->
+                      </div><!--button-->
+                    </div><!--pt1-->
+                  </div><!--span3-->
+                  
+                  <div class="span3 prblock prblue">
+                    <div class="pt1">
+                      <h2>Premium</h2>   <!-- set title for this block here !-->
+                        <!-- set image for this block here !-->
+                      <div class="price3">
+                        <h1>$19.99</h1>     <!-- set price for this block here !-->
+                        <p>price / month</p>
+                      </div><!--price-->
+                      <div class="content">
+                      
+                      </div><!--content-->
+                      <div class="plan-features">
+                        <p>Unlimited Submissions</p>      <!-- set feature here !-->
+                        <p>15GB Storage</p>      <!-- set feature here !-->
+                        <p>25GB Bandwidth</p>     <!-- set feature here !-->
+                        
+                        <p>Security Suite</p>      <!-- set feature here !-->
+                      </div><!--plan-features-->
+                      <div class="button">
+                        <%= link_to "Sign Up now!", new_user_registration_path %>  <!-- set url here !-->
+                      </div><!--button-->
+                    </div><!--pt1-->
+                  </div><!--span3-->
+                  
+                  <div class="span3 prblock prgolden">
+                    <div class="pt1">
+                      <h2>Ultimate</h2>    <!-- set title for this block here !-->
+                        <!-- set image for this block here !-->
+                      <div class="price4">
+                        <h1>$24.99</h1>     <!-- set price for this block here !-->
+                        <p>price / month</p>
+                      </div><!--price-->
+                      <div class="content">
+                      
+                      </div><!--content-->
+                      <div class="plan-features">
+                        <p>Unlimited Submissions</p>      <!-- set feature here !-->
+                        <p>Unlimited Storage</p>     <!-- set feature here !-->
+                        <p>Unlimited Bandwidth</p>      <!-- set feature here !-->
+                        <p>Security Suite</p>      <!-- set feature here !-->
+                      </div><!--plan-features-->
+                      <div class="button">
+                        <%= link_to "Sign Up now!", new_user_registration_path %>   <!-- set url here !-->
+                      </div><!--button-->
+                    </div><!--pt1-->
+                  </div><!--span3-->
+                  
+                </div><!--row-fluid-->
+              </div><!--tables-->
+              
+
+            </div><!--row-fluid-->
+          </div><!--cont-->
+        </div><!--pricing-->
+      </div><!--span12-->
+    </div><!--row-fluid-->
+  </div>
+  <!--pricing end-->
+</div>
+<div class="container-full">
+      <div class="row">
+       
+        <div class="col-lg-12 text-center v-center">
+          
+          <h1>Interested? </h1>
+          <p class="lead">Please submit your email to recieve updates in the future!</p>
+          
+          <br><br><br>
+          
+          <form class="col-lg-12">
+            <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
+            <input class="form-control input-lg" title="Don't worry. We hate spam, and will not share your email with anyone." placeholder="Enter your email address" type="text">
+              <span class="input-group-btn"><button class="btn btn-lg btn-primary" type="button">OK</button></span>
+            </div>
+          </form>
+        </div>
         
-        <hr>
-        <div class="col-sm-3">
-          <div class="panel panel-default text-center">
-            <div class="panel-heading">
-              <h3>Basic</h3>
-            </div>
-            <div class="panel-body">
-              <h3 class="panel-title price">$9<span class="price-cents">99</span><span class="price-month">mo.</span></h3>
-            </div>
-            <ul class="list-group">
-              <li class="list-group-item">5 Projects</li>
-              <li class="list-group-item">5 GB of Storage</li>
-              <li class="list-group-item">Up to 100 Users</li>
-              <li class="list-group-item">10 GB Bandwidth</li>
-              <li class="list-group-item">Security Suite</li>
-              <li class="list-group-item"><%= button_to "Sign up now!", new_user_registration_path, :method => "get", :class => "btn btn-large btn-primary" %></li>
-            </ul>
-          </div>          
-        </div>
-        <div class="col-sm-3">
-          <div class="panel panel-default text-center">
-            <div class="panel-heading">
-              <h3>Plus</h3>
-            </div>
-            <div class="panel-body">
-              <h3 class="panel-title price">$19<span class="price-cents">99</span><span class="price-month">mo.</span></h3>
-            </div>
-            <ul class="list-group">
-              <li class="list-group-item">10 Projects</li>
-              <li class="list-group-item">10 GB of Storage</li>
-              <li class="list-group-item">Up to 250 Users</li>
-              <li class="list-group-item">25 GB Bandwidth</li>
-              <li class="list-group-item">Security Suite</li>
-              <li class="list-group-item"><%= button_to "Sign up now!", new_user_registration_path, :method => "get", :class => "btn btn-large btn-primary" %></li>
-            </ul>
-          </div>          
-        </div>
-        <div class="col-sm-3">
-          <div class="panel panel-danger text-center">
-            <div class="panel-heading">
-              <h3>Premium</h3>
-            </div>
-            <div class="panel-body">
-              <h3 class="panel-title price">$29<span class="price-cents">99</span><span class="price-month">mo.</span></h3>
-            </div>
-            <ul class="list-group">
-              <li class="list-group-item">Unlimited</li>
-              <li class="list-group-item">50 GB of Storage</li>
-              <li class="list-group-item">Up to 1000 Users</li>
-              <li class="list-group-item">100 GB Bandwidth</li>
-              <li class="list-group-item">Security Suite</li>
-              <li class="list-group-item"><%= button_to "Sign up now!", new_user_registration_path, :method => "get", :class => "btn btn-large btn-primary" %></li>
-            </ul>
-          </div>          
-        </div>
-        <div class="col-sm-3">
-          <div class="panel panel-default text-center">
-            <div class="panel-heading">
-              <h3>Ultimate</h3>
-            </div>
-            <div class="panel-body">
-              <h3 class="panel-title price">$49<span class="price-cents">99</span><span class="price-month">mo.</span></h3>
-            </div>
-            <ul class="list-group">
-              <li class="list-group-item">Unlimited</li>
-              <li class="list-group-item">150 GB of Storage</li>
-              <li class="list-group-item">Unlimited</li>
-              <li class="list-group-item">500 GB Bandwidth</li>
-              <li class="list-group-item">Security Suite</li>
-              <li class="list-group-item"> <%= button_to "Sign up now!", new_user_registration_path, :method => "get", :class => "btn btn-large btn-primary" %></li>
-            </ul>
-          </div>          
-        </div>
- 
       </div>
-    </div> 
+    </div>
