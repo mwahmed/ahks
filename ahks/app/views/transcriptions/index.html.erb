@@ -77,7 +77,7 @@ $(document).ready(function(){
                   <% end %>
                </td>
                <% end %>
-               <td><%= transcription.date_created.to_time.strftime('%e %b, %y at %I:%M %p') %></td>
+               <td><%= transcription.date_created.in_time_zone.to_time.strftime('%e %b, %y at %I:%M %p') %></td>
                <td>
                   <%= link_to t('.edit', :default => t("helpers.links.edit")),
                      edit_transcription_path(transcription), :class => 'btn btn-mini' %>
