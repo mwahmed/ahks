@@ -44,7 +44,7 @@ $(document).ready(function(){
                <th><%=t '.actions', :default => t("helpers.actions") %></th>
             </tr>
          </thead>
-         <tbody>
+         <tbody id="myTable">
             <% @documents.each do |document| %>
             <tr>
                <td><%= link_to document.title, "/documents/#{document.id}?q=#{params[:search]}"%></td>
@@ -151,8 +151,15 @@ $(document).ready(function(){
             <% end %>
          </tbody>
       </table>
-      <%= link_to t('.new', :default => t("helpers.links.new")),
+            <%= link_to t('.new', :default => t("helpers.links.new")),
          new_document_path,
          :class => 'btn btn-primary' %>
+         <div class="text-center">
+            <ul class="pagination" id="myPager"></ul>
+            </div>
+         </div>
+      
+
+      
    </div>
 </div>

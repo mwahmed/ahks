@@ -30,7 +30,7 @@ $(document).ready(function(){
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="myTable">
     <% @tags.each do |tag| %>
       <tr id="#{tag.id}">
         <td><%= link_to tag.name, tag%></td>
@@ -50,8 +50,12 @@ $(document).ready(function(){
     <% end %>
   </tbody>
 </table>
-
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_tag_path,
             :class => 'btn btn-primary' %>
+   <div class="text-center">
+      <ul class="pagination" id="myPager"></ul>
+      </div>
+   </div>
+
 </div>
