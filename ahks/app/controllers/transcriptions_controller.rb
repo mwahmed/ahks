@@ -9,7 +9,7 @@ class TranscriptionsController < ApplicationController
      flash.now[:notice] = params[:notice] if !params[:notice].nil?
 
      if params[:search].nil?
-        @transcriptions = current_user.transcriptions
+        @transcriptions = current_user.transcriptions.sort_by {|obj| obj.date_created}.reverse
      else
           @search = Transcription.search do
             keywords params[:search] do
@@ -19,7 +19,7 @@ class TranscriptionsController < ApplicationController
             
           end
 
-          @transcriptions =  @search.nil? ? [] : @search.results
+          @transcriptions =  @search.nil? ? [] : @search.results.sort_by {|obj| obj.date_created}.reverse
      end
 
 #    @transcriptions = Transcription.all

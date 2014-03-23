@@ -6,7 +6,7 @@ class TagsController < ApplicationController
   def index
     #@tags = Tag.all
     @nav_select = "tags"
-    @tags = current_user.tags
+    @tags = current_user.tags.sort_by {|obj| obj.date_created}.reverse
   end
 
   # GET /tags/1

@@ -20,7 +20,7 @@ class DocumentsController < ApplicationController
       end
     end
     if params[:search].nil?
-        @documents = current_user.documents
+        @documents = current_user.documents.sort_by {|obj| obj.date_created}.reverse
     else
       @search = Document.search do
             keywords params[:search] do
@@ -30,7 +30,7 @@ class DocumentsController < ApplicationController
             
           end
 
-          @documents =  @search.nil? ? [] : @search.results
+          @documents =  @search.nil? ? [] : @search.results.sort_by {|obj| obj.date_created}.reverse
     end
     #@documents = Document.all
   end
