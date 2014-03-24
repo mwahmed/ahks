@@ -19,7 +19,7 @@ Ahks::Application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
   config.serve_static_assets = true
-  config.threadsafe!
+  #config.threadsafe!
   #config.assets.paths << Rails.root.join('app', 'assets', 'flash')
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large

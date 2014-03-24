@@ -131,6 +131,7 @@ $.fn.pageMe = function(opts){
 $(document).ready(function(){
     
   $('#myTable').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:10});
+  $('#myTable1').pageMe({pagerSelector:'#myPager1',showPrevNext:true,hidePageNumbers:false,perPage:10});
     
 });
 $(function() {
