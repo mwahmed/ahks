@@ -1,1 +1,1 @@
-thin start --ssl
+thin start --ssl --threaded
