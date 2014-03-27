@@ -1,7 +1,7 @@
 class TranscriptionsController < ApplicationController
-  before_action :set_transcription, only: [:show, :edit, :update, :destroy]
+  before_action :set_transcription, only: [:show, :edit, :update, :destroy, :update_db]
   skip_before_filter :verify_authenticity_token  
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: :update_db
   # GET /transcriptions
   # GET /transcriptions.json
   def index
@@ -28,7 +28,7 @@ class TranscriptionsController < ApplicationController
   # GET /transcriptions/1
   # GET /transcriptions/1.json
   def show
-	
+  
   end
 
   # GET /transcriptions/new
@@ -63,9 +63,9 @@ class TranscriptionsController < ApplicationController
           format.html { redirect_to :action=>"recorder", :transcription=>@transcription }
           format.json { render action: 'index', status: :created }
         else
-	  if !@transcription.path_to_audio.nil?
+    if !@transcription.path_to_audio.nil?
           `echo "#{Rails.root}/script/init_transcribe.sh #{@transcription.path_to_audio} #{@transcription.id} upload #{@transcription.path_to_audio.gsub('.wav','')}"| at now`
-	  end
+    end
           format.html { redirect_to "/transcriptions", :notice => 'Transcription was successfully stored.' }
           format.json { render action: 'index', status: :created }
         end
@@ -131,27 +131,27 @@ class TranscriptionsController < ApplicationController
   end
 
   def summary
-	@transcription = Transcription.find(params[:id])
+  @transcription = Transcription.find(params[:id])
 
-	@length = params[:summary_length].empty? ? "50" : params[:summary_length]
-	_z = params[:zwords]
-	_az = params[:antiz]
-	
-	_delimiter = @transcription.text.include?(".") ? "fullstop" : "newline"
-	@d = _delimiter
-	@result = `python /home/ubuntu/falcon/summarizer/summarizer.py #{@transcription.id} #{@length} '#{_z}' '#{_az}' #{_delimiter} 'transcriptions'`
+  @length = params[:summary_length].empty? ? "50" : params[:summary_length]
+  _z = params[:zwords]
+  _az = params[:antiz]
+  
+  _delimiter = @transcription.text.include?(".") ? "fullstop" : "newline"
+  @d = _delimiter
+  @result = `python /home/ubuntu/falcon/summarizer/summarizer.py #{@transcription.id} #{@length} '#{_z}' '#{_az}' #{_delimiter} 'transcriptions'`
 
-	@summary = @result.split(";;;ayush;;;")
+  @summary = @result.split(";;;ayush;;;")
 
   end
 
 
   def deliverables
-	@transcription = Transcription.find(params[:id])
-	@type = params[:type]
-	
-	@result = `python /home/ubuntu/falcon/extract/extractHandle.py #{@transcription.id} 'transcriptions' #{@type}`
-	@re_array = @result.split(";;;spandan;;;")
+  @transcription = Transcription.find(params[:id])
+  @type = params[:type]
+  
+  @result = `python /home/ubuntu/falcon/extract/extractHandle.py #{@transcription.id} 'transcriptions' #{@type}`
+  @re_array = @result.split(";;;spandan;;;")
 
   end
 
@@ -172,6 +172,12 @@ class TranscriptionsController < ApplicationController
   `echo "#{Rails.root}/script/init_transcribe.sh #{_path}/#{@transcription.id} #{@transcription.id}"| at now`
 
   render json: params
+  end
+
+  def update_db
+    @transcription.text = params[:text].to_s
+    @transcription.save
+    render :nothing => true, :status => 200, :content_type => 'text/html'
   end
 
   private

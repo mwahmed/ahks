@@ -70,7 +70,20 @@ $(document).ready(function(){
                   </table>
                </td>
                <% else %>
-               <td><% if transcription.text.length>250 %>
+               
+
+
+               <td>
+               <% if transcription.text.to_s.size == 0%>
+                     <p>
+                       <a class="btn btn-info has-spinner">
+                         <span class="spinner"><i class="icon-spin icon-refresh"></i></span>
+                         Loading ... Please check later.
+                       </a>
+                     </p>
+               <% end %>
+
+               <% if transcription.text.length>250 %>
                   <%= truncate(transcription.text.to_s.gsub("\n",". "), length: 250) %> <%= link_to "more", "/transcriptions/#{transcription.id}?q=#{params[:search]}"%>
                   <% else %>
                   <%= transcription.text.to_s.gsub("\n",". ")%>
