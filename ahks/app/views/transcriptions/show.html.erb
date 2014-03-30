@@ -28,7 +28,7 @@
       </dd>
       <% end %>
       <dt><strong><%= model_class.human_attribute_name(:date_created) %>:</strong></dt>
-      <dd><%= @transcription.date_created.in_time_zone.to_time.strftime('%e %b, %y at %I:%M %p') %></dd>
+      <dd><%= @transcription.date_created.in_time_zone.to_time.strftime('%e %b, %y at %l:%M %p') %></dd>
    </dl>
    <div class="form-actions">
       <%= link_to t('.back', :default => t("helpers.links.back")),
@@ -79,21 +79,12 @@
             </div>
          </div>
       </div>
-      <table>
-         <tr>
-            <td>      
-               <%= link_to 'Present Deliverables', deliverables_path(id: @transcription.id, type:'present'), :class => 'btn btn-primary'  %>
-            </td>
-            <td>
-               <%= link_to "Future Deliverables",  deliverables_path(id: @transcription.id, type:'future'),
-                  :class => 'btn btn-primary' %>
-            </td>
-         </tr>
-      </table>
+      <%= link_to 'Deliverables', deliverables_path(id: @transcription.id, type:'present'), :class => 'btn btn-primary'  %>
+     
       <p> 
          <%@transcription.tags.each do |tag|%>
             <div style="float:left;margin-right:2px;margin-top:0px;">
-               <%= button_to "#{tag.name}", tag, :method => "get", :class => "btn-tags btn btn-small" %>
+               <%= button_to "#{tag.name}", tag, :method => "get", :class => "btn-tags" %>
             </div>
          <%end%>
       </p>

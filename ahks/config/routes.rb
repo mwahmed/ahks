@@ -13,6 +13,9 @@ Ahks::Application.routes.draw do
   get 'doc_summary' => 'documents#summary'
   get 'deliverables' => 'transcriptions#deliverables'
   post 'update_transcription' => 'transcriptions#update_db'
+  get 'subscription' => 'static#subscription'
+  get 'plans' => 'static#plans'
+  get 'about' => 'static#about'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

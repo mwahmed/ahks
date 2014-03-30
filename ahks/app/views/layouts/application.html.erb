@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "AHKS" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Chomsky" %></title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -14,7 +14,7 @@
 
     <%= stylesheet_link_tag "application", :media => "all" %>
 
-
+    
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
@@ -50,7 +50,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="/">AHKS</a>
+      <a class="brand" href="/">Chomsky</a>
       <div class="nav-collapse">
         <ul class="nav">
           <li id='home'><a href="/"><i class="icon-home icon-white"></i> Home</a></li>
@@ -59,8 +59,8 @@
           <li id='transcriptions'><%= link_to " myTranscriptions", "/transcriptions", :class => "icon-microphone" %></li>
           <li id='documents'><%= link_to " myDocuments", "/documents", :class => "icon-file" %></li>
         <% end %>
-        <li id='about'><%= link_to " About", "#", :class => "icon-info-sign"  %></li>
-        <li id='contact'><%= link_to " Contact", "#" , :class => "icon-envelope" %></li>
+        <li id='about'><%= link_to " About", "/about", :class => "icon-info-sign"  %></li>
+        <li id='plans'><%= link_to " Plans", "/plans" , :class => "icon-dollar" %></li>
         </ul>
 
         <% if !user_signed_in? %>
@@ -97,13 +97,13 @@
        
 
     
-  <hr>
+<div class="spacer"> </div>
 <div class = "navbar navbar-default navbar-fixed-bottom">
 <div id="footer">
 
   <div class="container">
-    <p class = "navbar-text pull-left">ECE496 - Speech Summarizer</p>
-    <p class = "navbar-text pull-right"> &copy; AHKS 2014</p>
+    <p class = "navbar-text pull-left">ECE496 - Chomsky</p>
+    <p class = "navbar-text pull-right"> &copy; Chomsky 2014</p>
 
   </div>
 </div>

@@ -28,6 +28,14 @@
 //
 // Example:
 // @linkColor: #ff0000;
+
+body{
+background: url('white_carbonfiber.png');/* no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;*/
+}
 html, body {
   height:100%;
 }
@@ -80,10 +88,7 @@ text-align: center;
   height:100%;
 }
 
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color:   #2C3539;
-  color: @white;
-}
+
 
 /* Half Page Height Carousel Customization 
 .carousel {
@@ -152,7 +157,9 @@ text-align: center;
 
     /* MARKETING CONTENT
     -------------------------------------------------- */
-
+    .marketing{
+      color:#000;
+    }
     /* Center align the text within the three columns below the carousel */
     .marketing .span4 {
       text-align: center;
@@ -624,10 +631,16 @@ a.list-group-item.active:focus .list-group-item-text {
 .pt1 img{
   padding-bottom:30px;
 }
+
 .price{
-  background:#03bd9c;
+  background-color:#000;
+  color:#fff;
 }
 
+.prgreen:hover .price{
+
+    background:#03bd9c;
+}
 .prgreen:hover .button a{
   border:1px solid #03bd9c;
   background:#03bd9c;
@@ -689,9 +702,14 @@ a.list-group-item.active:focus .list-group-item-text {
   padding-bottom:30px;
 }
 .price2{
-  background:#e84d38;
+  background:#000;
+  color:#fff;
 }
 
+.prred:hover .price2{
+
+    background:#e84d38;
+}
 .prred:hover .button a{
   border:1px solid #e84d38;
   background:#e84d38;
@@ -716,9 +734,13 @@ a.list-group-item.active:focus .list-group-item-text {
   padding-bottom:27px;
 }
 .price3{
-  background:#33b9ff;
+  background:#000;
+  color:#fff;
 }
+.prblue:hover .price3{
 
+    background:#33b9ff;
+}
 .prblue:hover .button a{
   border:1px solid #33b9ff;
   background:#33b9ff;
@@ -743,9 +765,13 @@ a.list-group-item.active:focus .list-group-item-text {
   padding-bottom:27px;
 }
 .price4{
-  background:#daac54;
+  background:#000;
+  color:#fff;
 }
+.prgolden:hover .price4{
 
+    background:#daac54;
+}
 .prgolden:hover .button a{
   border:1px solid #daac54;
   background:#daac54;
@@ -941,10 +967,76 @@ a.list-group-item.active:focus .list-group-item-text {
 body {
 	padding:0;
 }
-
+h1{
+  color:#FFF;
+}
 .navbar, .navbar-default, .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
     margin-left: 0;
     margin-right: 0;
     margin-bottom:0;
 }
+}
+
+.spacer{
+  height: 50px;
+}
+
+.bs-glyphicons{
+  margin-left:0 ;
+  margin-right:0;
+  overflow:hidden
+}
+
+.bs-glyphicons-list{
+  padding-left:0;
+  list-style:none
+}
+
+.bs-glyphicons li{
+  float:left;
+  width:45%;
+  height:25px;
+  margin-right:20%;
+  margin-bottom:5%;
+  font-size:10px;
+  //line-height:1.4;
+  text-align:center;
+  border:none;
+  background-color:#f9f9f9;
+
+
+}
+
+.bs-glyphicons .glyphicon{
+
+  margin-top:5px;
+  margin-bottom:10px;
+  font-size:24px
+}
+
+.bs-glyphicons .glyphicon-class{
+  display:block;
+  text-align:center;
+  word-wrap:break-word
+}
+
+@media (min-width:768px)
+  {
+  .bs-glyphicons
+    {
+    margin-left:0;
+    margin-right:0
+    }
+  .bs-glyphicons li
+    {
+    width:12.5%;
+    font-size:12px
+    }
+  }
+
+.links a {
+  text-decoration: none;
+}
+.panel-group{
+  width:100%
 }

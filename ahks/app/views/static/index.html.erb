@@ -46,24 +46,27 @@
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
     <div class="container marketing">
-
+      <div class="text-center"> <h1> Features </h1> </div>
       <!-- Three columns of text below the carousel -->
-      <div class="row">
+      <div class="row" >
         <div class="span4">
           <img class="img-circle" data-src="http://placehold.it/140/">
-          <h2>Heading</h2><img class="img-circle" src="http://placehold.it/140x140">
+          <img class="img-circle" src="http://placehold.it/140x140">
+          <h2>Security</h2>
           <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
           <p><a class="btn" href="#">View details »</a></p>
         </div><!-- /.span4 -->
         <div class="span4">
           <img class="img-circle" data-src="http://placehold.it/140/">
-          <h2>Heading</h2><img class="img-circle" src="http://placehold.it/140x140">
+          <img class="img-circle" src="http://placehold.it/140x140">
+          <h2>Flexible and Responsive</h2>
           <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
           <p><a class="btn" href="#">View details »</a></p>
         </div><!-- /.span4 -->
         <div class="span4">
           <img class="img-circle" data-src="http://placehold.it/140/">
-          <h2>Heading</h2><img class="img-circle" src="http://placehold.it/140x140">
+          <img class="img-circle" src="http://placehold.it/140x140">
+          <h2>Customizable</h2>
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
           <p><a class="btn" href="#">View details »</a></p>
         </div><!-- /.span4 -->
@@ -71,125 +74,37 @@
 
     </div><!-- /.container -->
 
-<div class ="container">
-<div class="paddingcnt" id="pricing">
-    <div class="row-fluid">
-      <div class="span12">
-        <div class="pricing">
-          <div class="container">
-            <div class="row-fluid">
-              <div class="tables">
-                <div class="row-fluid">
-                
-                  <div class="span3 prblock prgreen">
-                    <div class="pt1">
-                      <h2>Basic</h2>    <!-- set title for this block here !-->
-                         <!-- set image for this block here !-->
-                      <div class="price">
-                        <h1>$2.99</h1>      <!-- set price for this block here !-->
-                        <p>price / month</p>
-                      </div><!--price-->
-                      <div class="content">
-                      
-                      </div><!--content-->
-                      <div class="plan-features">
-                        <p>20 Submissions </p>
-                        <p>1GB Storage</p>      <!-- set feature here !-->
-                        <p>5GB Bandwidth</p>     <!-- set feature here !-->
-                              <!-- set feature here !-->
-                        <p>Security Suite</p>      <!-- set feature here !-->
-                      </div><!--plan-features-->
-                      <div class="button">
-                        <%= link_to "Sign Up now!", new_user_registration_path %>  <!-- set url here !-->
-                      </div><!--button-->
-                    </div><!--pt1-->
-                  </div><!--span3-->
-                  
-                  <div class="span3 prblock prred">
-                    <div class="pt1">
-                      <h2>Plus</h2>   <!-- set title for this block here !-->
-                        <!-- set image for this block here !-->
-                      <div class="price2">
-                        <h1>$6.99</h1>      <!-- set price for this block here !-->
-                        <p>price / month</p>
-                      </div><!--price-->
-                      <div class="content">
-                      
-                      </div><!--content-->
-                      <div class="plan-features">
-                        <p> 100 Submissions </p>
-                        <p>5GB Storage</p>      <!-- set feature here !-->
-                        <p>15GB Bandwidth</p>     <!-- set feature here !-->
-                            <!-- set feature here !-->
-                        <p>Security Suite</p>      <!-- set feature here !-->
-                      </div><!--plan-features-->
-                      <div class="button">
-                        <%= link_to "Sign Up now!", new_user_registration_path %><!-- set url here !-->
-                      </div><!--button-->
-                    </div><!--pt1-->
-                  </div><!--span3-->
-                  
-                  <div class="span3 prblock prblue">
-                    <div class="pt1">
-                      <h2>Premium</h2>   <!-- set title for this block here !-->
-                        <!-- set image for this block here !-->
-                      <div class="price3">
-                        <h1>$19.99</h1>     <!-- set price for this block here !-->
-                        <p>price / month</p>
-                      </div><!--price-->
-                      <div class="content">
-                      
-                      </div><!--content-->
-                      <div class="plan-features">
-                        <p>Unlimited Submissions</p>      <!-- set feature here !-->
-                        <p>15GB Storage</p>      <!-- set feature here !-->
-                        <p>25GB Bandwidth</p>     <!-- set feature here !-->
-                        
-                        <p>Security Suite</p>      <!-- set feature here !-->
-                      </div><!--plan-features-->
-                      <div class="button">
-                        <%= link_to "Sign Up now!", new_user_registration_path %>  <!-- set url here !-->
-                      </div><!--button-->
-                    </div><!--pt1-->
-                  </div><!--span3-->
-                  
-                  <div class="span3 prblock prgolden">
-                    <div class="pt1">
-                      <h2>Ultimate</h2>    <!-- set title for this block here !-->
-                        <!-- set image for this block here !-->
-                      <div class="price4">
-                        <h1>$24.99</h1>     <!-- set price for this block here !-->
-                        <p>price / month</p>
-                      </div><!--price-->
-                      <div class="content">
-                      
-                      </div><!--content-->
-                      <div class="plan-features">
-                        <p>Unlimited Submissions</p>      <!-- set feature here !-->
-                        <p>Unlimited Storage</p>     <!-- set feature here !-->
-                        <p>Unlimited Bandwidth</p>      <!-- set feature here !-->
-                        <p>Security Suite</p>      <!-- set feature here !-->
-                      </div><!--plan-features-->
-                      <div class="button">
-                        <%= link_to "Sign Up now!", new_user_registration_path %>   <!-- set url here !-->
-                      </div><!--button-->
-                    </div><!--pt1-->
-                  </div><!--span3-->
-                  
-                </div><!--row-fluid-->
-              </div><!--tables-->
-              
+        <div class="container marketing">
 
-            </div><!--row-fluid-->
-          </div><!--cont-->
-        </div><!--pricing-->
-      </div><!--span12-->
-    </div><!--row-fluid-->
-  </div>
-  <!--pricing end-->
-</div>
-<div class="container-full">
-      <div class="row">
+      <!-- Three columns of text below the carousel -->
+      <div class="row" >
+        <div class="span4">
+          <img class="img-circle" data-src="http://placehold.it/140/">
+          <img class="img-circle" src="http://placehold.it/140x140">
+          <h2>Pricing</h2>
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+          <p><a class="btn" href="#">View details »</a></p>
+        </div><!-- /.span4 -->
+        <div class="span4">
+          <img class="img-circle" data-src="http://placehold.it/140/">
+          <img class="img-circle" src="http://placehold.it/140x140">
+          <h2>API Integration</h2>
+          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn" href="#">View details »</a></p>
+        </div><!-- /.span4 -->
+        <div class="span4">
+          <img class="img-circle" data-src="http://placehold.it/140/">
+          <img class="img-circle" src="http://placehold.it/140x140">
+          <h2>Future Steps</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn" href="#">View details »</a></p>
+        </div><!-- /.span4 -->
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+<div class="spacer"></div>
+
+      <div class="row" style="background-color:#110022; color:#FFF; margin-bottom:-10px">
        
         <div class="col-lg-12 text-center v-center">
           
@@ -197,14 +112,12 @@
           <p class="lead">Please submit your email to recieve updates in the future!</p>
           
           <br><br><br>
+          <%= form_tag subscription_path, :method => :get do %>
+               <%= text_field_tag :email, params[:email],:placeholder=>"Enter your email address", :required => "required" , :name=>"email" %>
+               <%= submit_tag "Submit", :name => nil, :class=>"btn btn-large btn-primary" %>
+            <% end %>
           
-          <form class="col-lg-12">
-            <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
-            <input class="form-control input-lg" title="Don't worry. We hate spam, and will not share your email with anyone." placeholder="Enter your email address" type="text">
-              <span class="input-group-btn"><button class="btn btn-lg btn-primary" type="button">OK</button></span>
-            </div>
-          </form>
-        </div>
+          </div>
         
       </div>
-    </div>
+

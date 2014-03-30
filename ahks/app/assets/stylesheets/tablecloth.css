@@ -42,13 +42,14 @@
 .table td.highlight-inverse,    .table td.highlight-inverse:hover     { background:#2C3539 !important; color:#FFF; }
 
 /* DEFAULT THEME */
+table tr{
+background-color:#FFF; 
+}
 
+table{
+  max-width: 85%;
+}
 .table caption {
   text-align:left;
   padding:10px 0;
-}
-
-.table tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color:   #2C3539;
-  color: #FFF;
 }

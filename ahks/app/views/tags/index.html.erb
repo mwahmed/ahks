@@ -35,16 +35,30 @@ $(document).ready(function(){
       <tr id="#{tag.id}">
         <td><%= link_to tag.name, tag%></td>
         <td><%= tag.description %></td>
-        <td><%= tag.date_created.in_time_zone.to_time.strftime('%e %b, %y at %I:%M %p')%></td>
+        <td><%= tag.date_created.in_time_zone.to_time.strftime('%e %b, %y at %l:%M %p')%></td>
         
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_tag_path(tag), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      tag_path(tag),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+          <div class="bs-glyphicons">                    
+                        <ul class="bs-glyphicons-list">
+                            <li>
+                              <span class="icon-edit"></span>
+                              <span class="icon-class"><%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_tag_path(tag) %>
+                              </span>
+                            <li>
+                                <span class="icon-remove-circle "></span>
+                                <span class="icon-class">
+                                   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                                    tag_path(tag),
+                                    :method => :delete,
+                                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) } %>
+                                </span>
+                            </li>
+
+                        </ul>
+          </div>
+
+         
         </td>
       </tr>
     <% end %>
