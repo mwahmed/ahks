@@ -1,5 +1,7 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token  
+  before_filter :authenticate_user!
 
   # GET /documents
   # GET /documents.json
