@@ -1,5 +1,7 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token  
+  before_filter :authenticate_user!
 
   # GET /documents
   # GET /documents.json
@@ -13,14 +15,14 @@ class DocumentsController < ApplicationController
       
             
               fp = File.open(_path, "r")
-              _check_doc.data = fp.read
+              _check_doc.data = fp.read.gsub("\r"," ")
               _check_doc.save
               fp.close    
 
       end
     end
     if params[:search].nil?
-        @documents = current_user.documents
+        @documents = current_user.documents.sort_by {|obj| obj.date_created}.reverse
     else
       @search = Document.search do
             keywords params[:search] do
@@ -30,7 +32,7 @@ class DocumentsController < ApplicationController
             
           end
 
-          @documents =  @search.nil? ? [] : @search.results
+          @documents =  @search.nil? ? [] : @search.results.sort_by {|obj| obj.date_created}.reverse
     end
     #@documents = Document.all
   end
@@ -54,7 +56,8 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     @document.date_created = Time.now
-    if !@document.file_file_name.nil?
+    if @document.file.path.nil?
+	@document.data = @document.data.gsub("\r"," ")
     end
     respond_to do |format|
       if @document.save
@@ -100,7 +103,7 @@ class DocumentsController < ApplicationController
 	
 	_delimiter = "fullstop"
 	
-	@result = `python /home/ubuntu/falcon/summarizer/summarizer.py #{@document.id} #{@length} '#{_z}' '#{_az}' #{_delimiter}`
+	@result = `python /home/ubuntu/falcon/summarizer/summarizer.py #{@document.id} #{@length} '#{_z}' '#{_az}' #{_delimiter} 'documents'`
 
 	@summary = @result.split(";;;ayush;;;")
 

@@ -15,7 +15,7 @@ class DocumentsController < ApplicationController
       
             
               fp = File.open(_path, "r")
-              _check_doc.data = fp.read
+              _check_doc.data = fp.read.gsub("\r"," ")
               _check_doc.save
               fp.close    
 
@@ -56,7 +56,8 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     @document.date_created = Time.now
-    if !@document.file_file_name.nil?
+    if @document.file.path.nil?
+	@document.data = @document.data.gsub("\r"," ")
     end
     respond_to do |format|
       if @document.save
